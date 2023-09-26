@@ -11,7 +11,7 @@ import { Form, FormControl, FormItem, FormLabel } from '@/components/ui/form';
 import { CarValidation } from '@/lib/validations/car';
 import { isBase64Image } from '@/lib/utils';
 import { useUploadThing } from '@/lib/uploadthing';
-import { createCar, deleteCar, editCar } from '@/lib/actions/car.actions';
+import { createCar, editCar } from '@/lib/actions/car.actions';
 import DragDrop from './DragDrop';
 import { CarFormProps, FileWithPreview } from '@/lib/interfaces';
 import {
@@ -40,6 +40,8 @@ import {
   handleServerError,
 } from './components/form.utilities';
 import { showImageError, showSuccessMessage } from '@/lib/toastHandler';
+
+import { deleteCarRevalidate } from '@/lib/revalidate/revalidate.actions';
 
 const CarForm: React.FC<CarFormProps> = ({ userId, car }) => {
   const { startUpload } = useUploadThing('media');
@@ -110,7 +112,6 @@ const CarForm: React.FC<CarFormProps> = ({ userId, car }) => {
         await editCar({
           ...carData,
           _id: car?._id,
-          carImages: values.carImages,
         });
         setSuccess(true);
       } else {
@@ -137,7 +138,7 @@ const CarForm: React.FC<CarFormProps> = ({ userId, car }) => {
   const handleDelete = async (carId: string) => {
     try {
       setIsLoading(true);
-      await deleteCar(carId);
+      await deleteCarRevalidate(carId);
 
       showSuccessMessage(toast, 'Success', 'Car deleted successfully');
 
