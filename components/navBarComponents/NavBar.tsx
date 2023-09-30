@@ -70,7 +70,7 @@ const NavBar = () => {
               <UserButton afterSignOutUrl="/" />
             </div>
           ) : (
-            <Link href="/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F">
+            <Link href="/sign-in?redirect_url=https://morrent-car-hire.vercel.app/">
               <button className="hidden h-[2.75rem] w-[6.8rem] items-center justify-center rounded bg-blue500 font-semibold text-white md:flex">
                 Login
               </button>
