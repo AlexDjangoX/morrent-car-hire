@@ -144,6 +144,7 @@ export interface CarFormButtonsProps {
   handleDelete: (carId: string) => Promise<void>;
   setIsConfirmingDelete: (val: boolean) => void;
   isConfirmingDelete: boolean;
+
   setIsLoading: (val: boolean) => void;
   isLoading: boolean;
 }
