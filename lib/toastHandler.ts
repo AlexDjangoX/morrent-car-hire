@@ -47,3 +47,15 @@ export const showError = (
     description,
   });
 };
+
+export const showInformation = (
+  toast: ToastFunction,
+  title: string,
+  description: string
+) => {
+  toast({
+    variant: 'information',
+    title,
+    description,
+  });
+};

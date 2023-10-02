@@ -183,13 +183,14 @@ export async function createCar(carData: CarParams): Promise<CarParams> {
     const car = new Car(carData);
     await car.save();
 
-    await User.findByIdAndUpdate(carData.userId, {
+    const user = await User.findByIdAndUpdate(carData.userId, {
       $push: { carsAdded: { car: car._id } },
     });
-
+    console.log(user);
+    console.log('first line');
     return car.toObject();
   } catch (error: any) {
-    throw new Error(`Failed to create car: ${error.message}`);
+    throw new Error(`Failed to create car, apologies: ${error.message}`);
   }
 }
 
