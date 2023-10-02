@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CarCard from '../carCardComponents/CarCard';
 
 interface RentedCarsProps {
@@ -11,9 +11,11 @@ const RentedCars: React.FC<RentedCarsProps> = ({ rentedCars }) => {
   const [showMore, setShowMore] = useState(false);
   const [parsedRentedCars, setParsedRentedCars] = useState<any[]>([]);
 
-  if (rentedCars) {
-    setParsedRentedCars(JSON.parse(rentedCars));
-  }
+  useEffect(() => {
+    if (rentedCars) {
+      setParsedRentedCars(JSON.parse(rentedCars));
+    }
+  }, [rentedCars]);
 
   return (
     <>

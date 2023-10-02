@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CarCard from '../carCardComponents/CarCard';
 import { CarParams } from '@/lib/interfaces';
 
@@ -13,9 +13,11 @@ const UsersCarsForRent: React.FC<CarsForRentProps> = ({ carsForRent }) => {
   const [showMore, setShowMore] = useState(false);
   const [parsedCarsForRent, setParsedCarsForRent] = useState<CarParams[]>([]);
 
-  if (carsForRent) {
-    setParsedCarsForRent(JSON.parse(carsForRent));
-  }
+  useEffect(() => {
+    if (carsForRent) {
+      setParsedCarsForRent(JSON.parse(carsForRent));
+    }
+  }, [carsForRent]);
 
   return (
     <>
