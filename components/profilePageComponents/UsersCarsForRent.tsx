@@ -11,11 +11,10 @@ interface CarsForRentProps {
 
 const UsersCarsForRent: React.FC<CarsForRentProps> = ({ carsForRent }) => {
   const [showMore, setShowMore] = useState(false);
-
-  let parsedCarsForRent: CarParams[] = [];
+  const [parsedCarsForRent, setParsedCarsForRent] = useState<CarParams[]>([]);
 
   if (carsForRent) {
-    parsedCarsForRent = JSON.parse(carsForRent);
+    setParsedCarsForRent(JSON.parse(carsForRent));
   }
 
   return (
