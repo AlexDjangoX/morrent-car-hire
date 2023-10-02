@@ -171,7 +171,7 @@ export interface FeedbackMessageProps {
 export interface ToastOptions {
   title: string;
   description: string;
-  variant?: 'destructive' | 'success';
+  variant?: 'destructive' | 'success' | 'information';
 }
 
 export type ToastFunction = (options: ToastOptions) => void;
