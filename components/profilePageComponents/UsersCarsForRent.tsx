@@ -48,7 +48,9 @@ const UsersCarsForRent: React.FC<CarsForRentProps> = ({ carsForRent }) => {
       </section>
 
       {parsedCarsForRent?.length === 0 && (
-        <h3>You have not added any cars to rent out.</h3>
+        <h3 className="p-5 font-medium text-gray400">
+          You have not added any cars to rent out.
+        </h3>
       )}
 
       <Link href="/cars/new">
