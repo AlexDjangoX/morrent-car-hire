@@ -53,7 +53,7 @@ const RentedCars: React.FC<RentedCarsProps> = ({ rentedCars }) => {
         <div>
           {parsedRentedCars?.length === 0 && (
             <h3 className="p-5 font-medium text-gray400">
-              You have not rented any cars
+              You have not rented any cars.
             </h3>
           )}
         </div>
